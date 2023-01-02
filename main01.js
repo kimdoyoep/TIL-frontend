@@ -59,8 +59,8 @@ const C2 = ScoreMul(c);
 const D1 = ScoreAdd(RightPage(d));
 const D2 = ScoreMul(RightPage(d));
 
-var pobiArr = [A1, A2, B1, B2];
-var crongArr = [C1, C2, D1, D2];
+const pobiArr = [A1, A2, B1, B2];
+const crongArr = [C1, C2, D1, D2];
 
 var pobiMax = Math.max(...pobiArr);
 var crongMax = Math.max(...crongArr);
