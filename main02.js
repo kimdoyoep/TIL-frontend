@@ -1,6 +1,10 @@
 const cryptogram = "heloolohh";
 const cryptogramArr = [...cryptogram];
 
+if(cryptogramArr.length >= 1000){
+  alert("error : 최대 1000자까지 입력할 수 있습니다.");
+}
+
 console.log(cryptogramArr);
 
 Del = (String) => {
