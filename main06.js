@@ -1,6 +1,6 @@
-const storage = ['dp@email.com, 도도', 'jjss@email.com, 심스', 'pp@email.com, 피피', 'suu@email.com, 수우우'];
+
 const arr = [];
-const arr2 = [];
+const result = [];
 
 
 class Student{
@@ -30,8 +30,9 @@ class Student{
     }else if(regexKorean.test(name) !== true){
       console.log('한글로만 입력합니다.')
     }else{
-      arr.push(`${mail}@email.com, ${name}`);
-      console.log(arr)
+      const studentArr = [`${mail}@email.com`, `${name}`];
+      arr.push(studentArr.toString());
+      console.log(arr);
     }
   }
   
@@ -46,25 +47,29 @@ student02.makeMail();
 student03.makeMail();
 student04.makeMail();
 
-console.log(storage);
+console.log(arr.length);
 
-duplicateTest = (storage, arr) => {
-  for(k = 0; k < arr.length; k++){
-    for(i = 0; i < storage.length; i++){
-      const storageNum = storage[i];
-      const storageArr = [...storageNum];
-      const arrNum = arr[k];
-      const arrArr = [...arrNum];
-      for(j = 0; j < 14; j++){
-        if(storageArr[j] === arrArr[j] && storageArr[j+1] === arrArr[j+1]){
-          arr2.storage[i];
-          console.log('성공했노 ㅋ');
-        }else{
-          continue;
+duplicateTest = arr => {
+  for(i = 0; i < arr.length; i++){
+    const arrNum = arr[i];
+    const arrr = [...arrNum]
+    arr.splice(i,1);
+    for(k = 0; k < arr.length; k++){
+      const arrArr = [...arr[k]];
+      for(j = 0; j < arrr.length; j++){
+        for(t = 0; t < arrArr.length; t++){
+          if(arrr[j] === arrArr[t] && arrr[j+1] === arrArr[t+1]){
+            result.push(arrNum, arr[k]);
+            console.log(arr)
+            break;
+          }else{
+            arr.splice(i-1, 0, arrNum);
+            break;
+          }
         }
       }
     }
   }
 }
 
-duplicateTest(storage, arr);
+duplicateTest(arr);
