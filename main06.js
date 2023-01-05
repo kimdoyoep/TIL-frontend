@@ -28,26 +28,26 @@ class Student{
     }else if(regexKorean.test(name) !== true){
       console.log('한글로만 입력합니다.')
     }else{
-      arr.push(`${mail}@email, ${name}`);
+      arr.push(`${mail}@email.com, ${name}`);
       console.log(arr);
-      storage.push(arr);
-      console.log(`storage : ${storage}`);
+      if(arr.length > 0)
+      storage.push(arr.toString());
+      console.log(storage);
     }
-
-  //   duplicateTest = () => {
-  //     storage.push(arr);
-  //     console.log(result)
-  //   }
   }
   
 }
 
-// 새로만든 회원의 메일 [i] === 기존 회원의 메일[k] 새로만든 회원의 메일 [i+1] === 기존 회원의 메일[k+1] => console.log(ddd) 실행
+const aa = [];
+console.log(aa.length)
 
 const student01 = new Student('dpdp','도엽지');
 const student02 = new Student('jsjs', '자스');
+const student03 = new Student('ppap', '피피에이피');
+const student04 = new Student('dppp', '디피피피');
 student01.makeMail();
 student02.makeMail();
-
+student03.makeMail();
+student04.makeMail();
 
 
