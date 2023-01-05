@@ -1,7 +1,4 @@
-const storage = [`"[dp@email.com]","[도엽쥐]"`, `"[js@email.com]","자스"`];
-
-console.log(storage);
-
+const storage = [];
 
 class Student{
 
@@ -17,6 +14,7 @@ class Student{
     const mailToString = mail.toString();
     const nameToString = name.toString();
     const regex = /^[a-z|A-Z]+$/;
+    const regexKorean = /^[ㄱ-ㅎ|가-힣]+$/;
 
     if(mailToString.length < 2 || mailToString.length > 11){
       console.log('2자 이상 11자 이하로 메일을 지정합니다.');
@@ -27,22 +25,29 @@ class Student{
       console.log('1자 이상 20자 이하로 이름을 지정합니다.');
     }else if(regex.test(mail) !== true){
       console.log('영어로만 입력합니다.');
-    }else if(regex.test(name) === true){
+    }else if(regexKorean.test(name) !== true){
       console.log('한글로만 입력합니다.')
     }else{
-      arr.push(`${mail}, ${name}`);
+      arr.push(`${mail}@email, ${name}`);
       console.log(arr);
+      storage.push(arr);
+      console.log(`storage : ${storage}`);
     }
-      
-  }
 
+  //   duplicateTest = () => {
+  //     storage.push(arr);
+  //     console.log(result)
+  //   }
+  }
+  
 }
 
 // 새로만든 회원의 메일 [i] === 기존 회원의 메일[k] 새로만든 회원의 메일 [i+1] === 기존 회원의 메일[k+1] => console.log(ddd) 실행
 
 const student01 = new Student('dpdp','도엽지');
-const student02 = new Student('jsjs', '지사');
+const student02 = new Student('jsjs', '자스');
 student01.makeMail();
 student02.makeMail();
+
 
 
