@@ -1,7 +1,7 @@
 
 const arr = [];
-const result = [];
-
+const list = [`"pppp@email.com"` , `"dpul@email.com"`, `"yuil@email.com"`];
+const result =[];
 
 class Student{
 
@@ -12,6 +12,7 @@ class Student{
 
   makeMail = () => {
     const mail = this.email;
+    const mailArr =[...mail];
     const name = this.name;
     const mailToString = mail.toString();
     const nameToString = name.toString();
@@ -30,46 +31,43 @@ class Student{
     }else if(regexKorean.test(name) !== true){
       console.log('한글로만 입력합니다.')
     }else{
-      const studentArr = [`${mail}@email.com`, `${name}`];
-      arr.push(studentArr.toString());
-      console.log(arr);
+
+      arr.push(`"${mail}email.com", "${name}"`);
+        
+      
+      for(let i = 0; i < list.length; i++){
+        for(let j = 0; j < mailArr.length; j++){
+          if(list[i].indexOf(mailArr[j]+mailArr[j+1]) !== -1){
+            result.push(list[i]);
+            break;
+        }else{
+          continue;
+        }
+        } 
+      }
+      
     }
   }
-  
 }
 
-const student01 = new Student('dpdp','도엽지');
-const student02 = new Student('jsjs', '자스');
-const student03 = new Student('ppap', '피피에이피');
-const student04 = new Student('dppp', '디피피피');
+
+const student01 = new Student('dpdp', '디피');
+const student02 = new Student('ppap', '피피에이피');
+const student03 = new Student('ndl', '니달리');
 student01.makeMail();
 student02.makeMail();
 student03.makeMail();
-student04.makeMail();
 
-console.log(arr.length);
 
-duplicateTest = arr => {
-  for(i = 0; i < arr.length; i++){
-    const arrNum = arr[i];
-    const arrr = [...arrNum]
-    arr.splice(i,1);
-    for(k = 0; k < arr.length; k++){
-      const arrArr = [...arr[k]];
-      for(j = 0; j < arrr.length; j++){
-        for(t = 0; t < arrArr.length; t++){
-          if(arrr[j] === arrArr[t] && arrr[j+1] === arrArr[t+1]){
-            result.push(arrNum, arr[k]);
-            console.log(arr)
-            break;
-          }else{
-            arr.splice(i-1, 0, arrNum);
-            break;
-          }
-        }
-      }
-    }
-  }
+resultOutput = (arr, result) => {
+  arr.sort();
+  result.sort();
+  console.log(`forms: ${arr}`);
+  console.log(`result: ${result}`);
 }
 
-duplicateTest(arr);
+resultOutput(arr, result);
+
+const aaa = [1, 3, 5, 2, 4];
+aaa.sort();
+console.log(aaa);
