@@ -1,6 +1,6 @@
 
 const arr = [];
-const list = [`"pppp@email.com"` , `"dpul@email.com"`, `"yuil@email.com"`];
+const list = [`"pppp@email.com"` , `"dpul@email.com"`, `"yuil@email.com"`, `"sdthm@email.com"`];
 const result =[];
 
 class Student{
@@ -32,7 +32,7 @@ class Student{
       console.log('한글로만 입력합니다.')
     }else{
 
-      arr.push(`"${mail}email.com", "${name}"`);
+      arr.push(`["${mail}email.com", "${name}"]`);
         
       
       for(let i = 0; i < list.length; i++){
@@ -53,17 +53,19 @@ class Student{
 
 const student01 = new Student('dpdp', '디피');
 const student02 = new Student('ppap', '피피에이피');
-const student03 = new Student('ndl', '니달리');
+const student03 = new Student('ndl', '니t리');
+const student04 = new Student('shm', '손흥민')
 student01.makeMail();
 student02.makeMail();
 student03.makeMail();
+student04.makeMail();
 
 
 resultOutput = (arr, result) => {
   arr.sort();
   result.sort();
   console.log(`forms: ${arr}`);
-  console.log(`result: ${result}`);
+  console.log(`result: [${result}]`);
 }
 
 resultOutput(arr, result);
