@@ -1,4 +1,5 @@
 const userArr = [];
+const friendsArr = [];
 
 class User {
   constructor(user) {
@@ -44,18 +45,10 @@ addFriendAndScore = (user, friends) => {
 chooseFriend = (x, y) => {
   for (let i = 0; i < x.length; i++) {
     if (x[i] === y) {
-      console.log(`3`);
+      friendsArr.push(`${x[i - 1]}`);
     }
   }
 };
 
 addFriendAndScore(userArr[0], friends);
-
-function tt() {
-  if (userArr[0] === friends[1][1]) {
-    return console.log(`맞는데 왜그래`);
-  }
-  return console.log(`gg`);
-}
-
-tt();
+console.log(friendsArr);
