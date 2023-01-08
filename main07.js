@@ -1,6 +1,8 @@
 const userArr = [];
 const friendsArr = [];
 const visitorArr = [];
+const friendsObjArr = [];
+const visitorObjArr = [];
 
 class User {
   constructor(user) {
@@ -36,8 +38,6 @@ const friends = [
 const visitor = ["bedi", "bedi", "donut", "bedi", "shakevan"];
 
 addFriendAndScore = (user, friends) => {
-  const sum = 0;
-
   for (let i = 0; i < friends.length; i++) {
     const x = friends[i];
     const y = user;
@@ -57,10 +57,43 @@ addFriendAndScore(userArr[0], friends);
 console.log(friendsArr);
 
 chooseVisitor = (visitor) => {
-  for (i = 0; i < visitor.length; i++) {
+  for (let i = 0; i < visitor.length; i++) {
     visitorArr.push(visitor[i]);
   }
 };
 
 chooseVisitor(visitor);
 console.log(visitorArr);
+
+AddFriendScore = (friendsArr, visitorArr) => {
+  for (let i = 0; i < friendsArr.length; i++) {
+    const x = friendsArr[i];
+    FriendsObj(x);
+  }
+
+  for (let i = 0; i < visitorArr.length; i++) {
+    const x = visitorArr[i];
+    VisitorsObj(x);
+  }
+};
+
+FriendsObj = (x) => {
+  const obj = {
+    name: x,
+    score: 10,
+  };
+  friendsObjArr.push(obj);
+};
+
+VisitorsObj = (x) => {
+  const obj = {
+    name: x,
+    score: 1,
+  };
+  visitorObjArr.push(obj);
+};
+
+AddFriendScore(friendsArr, visitorArr);
+
+console.log(friendsObjArr.toString());
+console.log(visitorObjArr.toString());
