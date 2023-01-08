@@ -3,6 +3,7 @@ const friendsArr = [];
 const visitorArr = [];
 const friendsObjArr = [];
 const visitorObjArr = [];
+const result = [];
 
 class User {
   constructor(user) {
@@ -68,32 +69,45 @@ console.log(visitorArr);
 AddFriendScore = (friendsArr, visitorArr) => {
   for (let i = 0; i < friendsArr.length; i++) {
     const x = friendsArr[i];
-    FriendsObj(x);
+    friendsObj(x);
   }
 
   for (let i = 0; i < visitorArr.length; i++) {
     const x = visitorArr[i];
-    VisitorsObj(x);
+    visitorsObj(x);
   }
 };
 
-FriendsObj = (x) => {
-  const obj = {
-    name: x,
-    score: 10,
-  };
-  friendsObjArr.push(obj);
+friendsObj = (x) => {
+  const y = `10/${x}`;
+  friendsObjArr.push(y);
 };
 
-VisitorsObj = (x) => {
-  const obj = {
-    name: x,
-    score: 1,
-  };
-  visitorObjArr.push(obj);
+visitorsObj = (x) => {
+  const y = `1/${x}`;
+  visitorObjArr.push(y);
 };
 
 AddFriendScore(friendsArr, visitorArr);
+console.log(visitorObjArr);
+console.log(friendsObjArr);
 
-console.log(friendsObjArr.toString());
-console.log(visitorObjArr.toString());
+duplicateArr = (visitorObjArr) => {
+  for (let i = 0; i < visitorObjArr.length; i++) {
+    const x = visitorObjArr[i];
+    duplicateDel(x);
+  }
+};
+
+duplicateDel = (x) => {
+  for (let i = 0; i < visitorObjArr.length; i++) {
+    if (visitorObjArr[i] === x) {
+      result.push(x);
+    } else {
+      console.log(`0`);
+    }
+  }
+};
+
+duplicateArr(visitorObjArr);
+console.log(result);
