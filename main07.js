@@ -1,5 +1,6 @@
 const userArr = [];
 const friendsArr = [];
+const visitorArr = [];
 
 class User {
   constructor(user) {
@@ -32,6 +33,8 @@ const friends = [
   ["shakevan", "mrko"],
 ];
 
+const visitor = ["bedi", "bedi", "donut", "bedi", "shakevan"];
+
 addFriendAndScore = (user, friends) => {
   const sum = 0;
 
@@ -52,3 +55,12 @@ chooseFriend = (x, y) => {
 
 addFriendAndScore(userArr[0], friends);
 console.log(friendsArr);
+
+chooseVisitor = (visitor) => {
+  for (i = 0; i < visitor.length; i++) {
+    visitorArr.push(visitor[i]);
+  }
+};
+
+chooseVisitor(visitor);
+console.log(visitorArr);
