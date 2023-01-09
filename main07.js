@@ -36,7 +36,7 @@ const friends = [
   ["shakevan", "mrko"],
 ];
 
-const visitor = ["bedi", "bedi", "donut", "bedi", "shakevan"];
+const visitor = ["bedi", "bedi", "donut", "bedi", "shakevan", "yupgy"];
 
 addFriendAndScore = (user, friends) => {
   for (let i = 0; i < friends.length; i++) {
@@ -87,8 +87,19 @@ const newResultArr = resultArr.filter((element, index) => {
     ) === index
   );
 });
+
 console.log(newResultArr.toString());
 console.log(resultArr.toString());
+
+const newVisitorArr = visitorArr.filter((element, index) => {
+  return (
+    visitorArr.findIndex(
+      (item) => item[0] === element[0] && item[1] === element[1]
+    ) === index
+  );
+});
+
+console.log(newVisitorArr);
 
 addScore = () => {
   for (let i = 0; i < friendsArr.length; i++) {
@@ -100,18 +111,33 @@ addScore = () => {
       }
     }
   }
+
+  for (let i = 0; i < newVisitorArr.length; i++) {
+    for (
+      let t = friendsArr.length;
+      t < visitorArr.length + friendsArr.length;
+      t++
+    ) {
+      if (newVisitorArr[i][0] === resultArr[t][0]) {
+        const x = newVisitorArr[i];
+        addScoreOne(x);
+      } else {
+        continue;
+      }
+    }
+  }
+};
+
+addScoreOne = (x) => {
+  for (let i = 0; i < newResultArr.length; i++) {
+    if (x[0] === newResultArr[i][0]) {
+      newResultArr[i][1] = newResultArr[i][1] + 1;
+    } else {
+      newResultArr[i][1] = newResultArr[i][1];
+    }
+  }
 };
 
 addScore();
-
-for (let i = 0; i < visitorArr.length; i++) {
-  for (let t = 0; t < newResultArr.length; t++) {
-    if (visitor[i] === newResultArr[t]) {
-      newResultArr[t][1] = newResultArr[t][1] + 1;
-    } else {
-      newResultArr[t][1] = newResultArr[t][1];
-    }
-  }
-}
 
 console.log(newResultArr.toString());
