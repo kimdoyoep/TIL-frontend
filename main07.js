@@ -46,59 +46,72 @@ addFriendAndScore = (user, friends) => {
   }
 };
 
+const aa = [];
+
 chooseFriend = (x, y) => {
   for (let i = 0; i < x.length; i++) {
     if (x[i] === y) {
-      friendsArr.push(`${x[i - 1]}`);
+      friendsArr.push([`${x[i - 1]}`, 0]);
     }
   }
 };
 
 addFriendAndScore(userArr[0], friends);
-console.log(friendsArr);
+console.log(friendsArr.toString());
 
 chooseVisitor = (visitor) => {
   for (let i = 0; i < visitor.length; i++) {
-    visitorArr.push(visitor[i]);
+    visitorArr.push([`${visitor[i]}`, 0]);
   }
 };
 
 chooseVisitor(visitor);
-console.log(visitorArr);
+console.log(visitorArr.toString());
 
-AddFriendScore = (friendsArr, visitorArr) => {
+pushResultArr = (friendsArr, visitorArr) => {
   for (let i = 0; i < friendsArr.length; i++) {
-    const x = friendsArr[i];
-    friendsObj(x);
+    resultArr.push(friendsArr[i]);
   }
 
   for (let i = 0; i < visitorArr.length; i++) {
-    const x = visitorArr[i];
-    visitorsObj(x);
+    resultArr.push(visitorArr[i]);
   }
 };
 
-friendsObj = (x) => {
-  const y = `10/${x}`;
-  friendsObjArr.push(y);
-};
+pushResultArr(friendsArr, visitorArr);
 
-visitorsObj = (x) => {
-  const y = `${x}`;
-  visitorObjArr.push(y);
-};
+const newResultArr = resultArr.filter((element, index) => {
+  return (
+    resultArr.findIndex(
+      (item) => item[0] === element[0] && item[1] === element[1]
+    ) === index
+  );
+});
+console.log(newResultArr.toString());
+console.log(resultArr.toString());
 
-AddFriendScore(friendsArr, visitorArr);
-console.log(visitorObjArr);
-console.log(friendsObjArr);
-
-const DuplicateCount = (arr) => {
-  let result = [];
-  for (const el of arr) {
-    result[el] = (result[el] || 0) + 1;
+addScore = () => {
+  for (let i = 0; i < friendsArr.length; i++) {
+    for (let t = 0; t < newResultArr.length; t++) {
+      if (friendsArr[i] === newResultArr[t]) {
+        newResultArr[t][1] = newResultArr[t][1] + 10;
+      } else {
+        newResultArr[t][1] = newResultArr[t][1];
+      }
+    }
   }
-  return result;
 };
 
-const test = DuplicateCount(visitorObjArr);
-console.log(test);
+addScore();
+
+for (let i = 0; i < visitorArr.length; i++) {
+  for (let t = 0; t < newResultArr.length; t++) {
+    if (visitor[i] === newResultArr[t]) {
+      newResultArr[t][1] = newResultArr[t][1] + 1;
+    } else {
+      newResultArr[t][1] = newResultArr[t][1];
+    }
+  }
+}
+
+console.log(newResultArr.toString());
