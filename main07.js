@@ -36,7 +36,20 @@ const friends = [
   ["shakevan", "mrko"],
 ];
 
-const visitor = ["bedi", "bedi", "donut", "bedi", "shakevan", "yupgy"];
+const friends02 = `  ["donut", "andole"], ["donut", "jun"], ["donut", "mrko"], ["shakevan", "andole"], ["shakevan", "jun"], ["shakevan", "mrko"]`;
+
+const visitor = [
+  "bedi",
+  "bedi",
+  "donut",
+  "bedi",
+  "shakevan",
+  "yupgy",
+  "shakevan",
+  "donut",
+  "coldplay",
+  "kity",
+];
 
 addFriendAndScore = (user, friends) => {
   for (let i = 0; i < friends.length; i++) {
@@ -141,3 +154,18 @@ addScoreOne = (x) => {
 addScore();
 
 console.log(newResultArr.toString());
+
+finish = (newResultArr) => {
+  newResultArr.sort((a, b) => b[1] - a[1]);
+  if (newResultArr.length >= 5) {
+    newResultArr.length = 5;
+  }
+};
+
+finish(newResultArr);
+
+console.log(newResultArr.toString());
+
+console.log(`friends: ${friends02}
+visitor: [${visitor}] 
+result: [${newResultArr}] `);
