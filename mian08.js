@@ -1,14 +1,54 @@
-const computerNum = Math.floor(Math.random() * 10);
-const computerNumArr = [1, 0, 0];
+const zeroToNine = [];
 
-computerNumCondition = (computerNum) => {
-  for (i = 0; i < computerNumArr.length; i++) {
-    computerNumArr[i] = computerNumArr[i] + computerNum;
-    if (computerNumArr[i] === 10) {
-      computerNumArr[i] = computerNumArr[i] - 1;
+makeArrZeroToNine = (arr) => {
+  for (let i = 0; i < 10; i++) {
+    arr.push(i);
+  }
+};
+
+makeArrZeroToNine(zeroToNine);
+
+shuffle = (arr) => {
+  arr.sort(() => Math.random() - 0.5);
+};
+
+shuffle(zeroToNine);
+
+console.log(zeroToNine);
+
+const computerArr = [];
+
+makeArrComputer = (arr) => {
+  for (let i = 0; i < 3; i++) {
+    arr.push(zeroToNine[i]);
+    if (arr[0] === 0) {
+      console.log(`ss`);
+      arr[0] = zeroToNine[i + 1];
+      zeroToNine.splice(i + 1, 1);
+      console.log(zeroToNine);
     }
   }
 };
 
-computerNumCondition(computerNum); // 컴퓨터(상대방) 숫자 결정.
-console.log(computerNumArr);
+makeArrComputer(computerArr);
+console.log(computerArr);
+
+// makeArrComputer(computerArr);
+
+// console.log(computerArr);
+
+// const readline = require("readline");
+
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+
+// rl.on("line", (line) => {
+//   console.log("input: ", line);
+//   rl.close();
+// });
+
+// rl.on("close", () => {
+//   process.exit();
+// });
