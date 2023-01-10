@@ -168,4 +168,4 @@ console.log(newResultArr.toString());
 
 console.log(`friends: ${friends02}
 visitor: [${visitor}] 
-result: [${newResultArr}] `);
+result: [${newResultArr}]`);
