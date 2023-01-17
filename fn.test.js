@@ -12,7 +12,7 @@ test("1더하기 2는 4이야", () => { // failed
   expect(add(1, 2)).toBe(4);
 });
 
-// toEqual VS
+// toEqual VS toTtrickEqual
 
 test("1더하기 3는 4이야", () => { // failed
   expect(add(1, 3)).toEqual(4);
@@ -83,4 +83,27 @@ test("비밀번호 4자리.", () => { // passed
 
 test("0.1 더하기 0.2는 0.3이다", () => { // passed :: 0.3에 근접했는가 test한다.
   expect(add(0.1,0.2)).toBeClose(0.3); 
+})
+
+//toMathch
+//toContain
+
+test("helloWorld에 a라는 녀석이 있나?", () => { // failed
+  expect('helloWorld').toMatch(/a/);
+})
+
+test("유저 리스트에 MIKE가 있나?", () => { //passed
+  const user = "MIKE";
+  const userList = ["MIKE", "KEVIN", "YUPGY"];
+  expect(userList).toContain(user)
+})
+
+//toThrow 예외
+
+test("이거 에러 나나요?", () => {  // passed
+  expect(() => fn.throwErr).toThrow();
+})
+
+test("이거 에러 나나요?", () => {  // failed :: 에러 명이 xx인데 oo로 test 해서
+  expect(() => fn.throwErr).toThrow("oo");
 })
