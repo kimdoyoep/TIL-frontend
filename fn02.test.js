@@ -92,3 +92,32 @@ test("전달된 값은 11 21 31 입니다.", () => {
   expect(mockFn.mock.calls[0][1]).toBe(21);
   expect(mockFn.mock.calls[0][2]).toBe(31);
 })
+
+mockFn 
+.mockReturnValueOnce(10)
+.mockReturnValueOnce(20)
+.mockReturnValueOnce(30)
+.mockReturnValue(40);
+
+mockFn();
+mockFn();
+mockFn();
+mockFn();
+
+test("dd", () => {
+  console.log(mockFn.mock.results);
+  expect("dd").toBe("dd")
+})
+
+mockFn 
+.mockReturnValueOnce(true)
+.mockReturnValueOnce(false)
+.mockReturnValueOnce(true)
+.mockReturnValueOnce(false)
+.mockReturnValue(true);
+
+const result = [1, 2, 3, 4, 5].filter((num => mockFn(num)));
+
+test("홀수는 1, 3, 5", () => {
+  expect(result).toStrickEqual([1, 3, 5]);
+})
